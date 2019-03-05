@@ -1,0 +1,183 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+    <!--<meta charset="UTF-8">-->
+    <!--<title>Title</title>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--{% for rest in url1 %}-->
+<!--<a href="{{rest.url}}">{{rest.url}}</a><br>-->
+<!--{% endfor %}-->
+<!--</body>-->
+<!--</html>-->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Search</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0; maximum-scale=1">
+	<style type="text/css">
+		.search_page_result{
+			padding: 25px 0px 0px;
+    		background-color: #ddd;
+		}
+		.search_page_result img{
+			width: 110px;
+		    margin: 0 auto;
+		    margin-bottom: 25px;
+		}
+		.search_page_result .btn-default{
+			background: transparent!important;
+		    border: 0;
+		    border-bottom-right-radius: 5px!important;
+		    border-top-right-radius: 5px!important;
+		}
+		.search_page_result .input-group-btn{border-right: 1px solid #ddd;border-top: 1px solid #ddd;border-bottom: 1px solid #ddd;}
+		.search_page_result .search_input{width: 100%;margin: 0 auto; }
+		.search_page_result .search_input input{
+			height: 44px;
+			border-right: none;
+		}
+		.search_page_result .search_input .input-group{
+			box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
+			height: 44px;
+		}
+		.search_page_result nav ul{list-style-type: none; padding-left: 15px;}
+		.search_page_result nav ul li{display: inline; margin-right: 10px;}
+		.search_page_result nav ul li.active{font-weight: bold;}
+		.result_data .related-links a{margin-right: 10px;}
+		.result_data p, h5{margin-bottom: 0!important;}
+		.result_data .result{margin-top: 12px;}
+		.result_data .right-section {border: 1px solid #ddd; padding: 20px;}
+		.result_data .right-section .form-group{margin-bottom: 0;}
+	</style>
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+<script src="https://www.gstatic.com/firebasejs/5.8.5/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyA_3Ez0a1_bUXmAyKYxnqSnzDE8kTHOXwY",
+    authDomain: "awesome-engine.firebaseapp.com",
+    databaseURL: "https://awesome-engine.firebaseio.com",
+    projectId: "awesome-engine",
+    storageBucket: "awesome-engine.appspot.com",
+    messagingSenderId: "834058498773"
+  };
+  firebase.initializeApp(config);
+</script>
+<script src="index.js"></script>
+
+		<div class="search_page_result">
+			<div class="container-fluid">
+				<header class="top-nav">
+					<div class="row">
+						<div class="col-sm-1">
+							{% load staticfiles %}
+					</div>
+					<div class="clearfix"></div>
+				</header>
+			</div>
+			<div class="container">
+				<nav>
+					<ul>
+						<li class="active"><a href="#!">All</a></li>
+						<li><a href="#!">Images</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+
+		<div class="container result_data">
+			<div class="col-sm-12">
+				<div class="row">
+					<div class="col-sm-12">
+						<div><small class="text-muted">About 8,55,000 results (0.62 seconds) </small></div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-8">
+                        {% for rest in url1 %}
+                            <div class="result">
+
+                                    <h5><a href={{rest.link}}a>{{rest.name}}</a></h5>
+                                    <a href={{rest.link}} class="text-success">{{rest.link}}</a>
+                                    <p>{{rest.detail}}</p>
+                                    <div class="related-links">
+                                        <a href="#!">CSS layout</a>
+                                        <a href="#!">Inline block</a>
+                                        <a href="#!">Save your code</a>
+                                    </div>
+                            </div>
+                        {% endfor %}
+						<!--<div class="result">-->
+							<!--<h5><a href="#!">CSS Layout - float and clear - W3Schools</a></h5>-->
+							<!--<a href="#!" class="text-success">https://www.w3schools.com/Css/css_float.asp</a>-->
+							<!--<p>The CSS float property specifies how an element should float. The CSS clear property specifies what elements can float beside the cleared element and on ...</p>-->
+							<!--<div class="related-links">-->
+								<!--<a href="#!">CSS layout</a>-->
+								<!--<a href="#!">Inline block</a>-->
+								<!--<a href="#!">Save your code</a>-->
+							<!--</div>-->
+						<!--</div>-->
+						<!--<div class="result">-->
+							<!--<h5><a href="#!">CSS Layout - float and clear - W3Schools</a></h5>-->
+							<!--<a href="#!" class="text-success">https://www.w3schools.com/Css/css_float.asp</a>-->
+							<!--<p>The CSS float property specifies how an element should float. The CSS clear property specifies what elements can float beside the cleared element and on ...</p>-->
+							<!--<div class="related-links">-->
+								<!--<a href="#!">CSS layout</a>-->
+								<!--<a href="#!">Inline block</a>-->
+								<!--<a href="#!">Save your code</a>-->
+							<!--</div>-->
+						<!--</div>-->
+						<!--<div class="result">-->
+							<!--<h5><a href="#!">CSS Layout - float and clear - W3Schools</a></h5>-->
+							<!--<a href="#!" class="text-success">https://www.w3schools.com/Css/css_float.asp</a>-->
+							<!--<p>The CSS float property specifies how an element should float. The CSS clear property specifies what elements can float beside the cleared element and on ...</p>-->
+							<!--<div class="related-links">-->
+								<!--<a href="#!">CSS layout</a>-->
+								<!--<a href="#!">Inline block</a>-->
+								<!--<a href="#!">Save your code</a>-->
+							<!--</div>-->
+						<!--</div>-->
+					</div>
+					<div class="col-sm-4">
+						<div class="right-section">
+							<h4>Google search</h4>
+							<hr/>
+							<p>Google Search, also referred to as Google Web Search or simply Google, is a web search engine developed by Google LLC. It is the most used search engine on the World Wide Web across all platforms, with 90.46% market share as of July 2018, handling more than three billion searches each day.</p>
+							<div class="form-group">
+								<label><strong>Date Launched:</strong> <span>15 September 1997</span></label>
+							</div>
+							<div class="form-group">
+								<label><strong>Type of site:</strong> <span>Website search engine</span></label>
+							</div>
+							<div class="form-group">
+								<label><strong>Owner: </strong><span>Google</span></label>
+							</div>
+							<div class="form-group">
+								<label><strong>Date Launched:</strong> <span>15 September 1997</span></label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div style="margin-top: 25px;">
+					<ul class="pagination">
+					  <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+					  <li class="page-item"><a class="page-link" href="#">1</a></li>
+					  <li class="page-item"><a class="page-link" href="#">2</a></li>
+					  <li class="page-item"><a class="page-link" href="#">3</a></li>
+					  <li class="page-item"><a class="page-link" href="#">Next</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+<script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+</body>
+</html>

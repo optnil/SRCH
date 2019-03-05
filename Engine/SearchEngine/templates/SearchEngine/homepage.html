@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>Search</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+	<style type="text/css">
+		/*.search_page{
+
+		    width: 100%;
+		}*/
+		.search_page img{
+			padding-top: 112px;
+		    width: 444px;
+		    margin: 0 auto;
+		    margin-bottom: 25px;
+		}
+		.search_page .btn-primary{
+			/*background: transparent!important;*/
+		    border-bottom-right-radius: 5px!important;
+		    border-top-right-radius: 5px!important;
+		    margin-top: 25px;
+		    text-align: center;
+		}
+		.input-group-btn{
+			border-right: 1px solid #ddd;
+			border-top: 1px solid #ddd;
+			border-bottom: 1px solid #ddd;
+		}
+		.search_input{width: 65%;margin: 0 auto; }
+		.search_input input{
+			height: 44px;
+			border-right: none;
+		}
+		.search_input .input-group{
+			box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
+			-webkit-box-shadow:0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
+			height: 44px;
+			background-color: white;
+		}
+		.search_input  .input-group-btn:last-child>.btn, .input-group-btn:last-child>.btn-group{
+			margin-top: 0;border: 0}
+	</style>
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+{% load staticfiles %}
+<body style="background-image: url({% static "Search/839214-landscape-sunset.jpg" %});height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 160%;">
+
+	<div class="container">
+		<div class="col-sm-12">
+			<div class="row search_page">
+				<div class="text-right">
+					<button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Login</button>
+				</div>
+				<div class="text-center">
+					<img src="{% static "Search/srch.png" %}" title="search" alt="search" class="img-responsive">
+					<div class="search_input">
+						<form action="getname/" method="POST">
+						  <div class="input-group">
+						    <input type="text" class="form-control" name="search" placeholder="Search" id="search">
+							  {% csrf_token %}
+						    <div class="input-group-btn">
+						      <button class="btn btn-default" type="submit">
+						        <i class="fa fa-microphone" aria-hidden="true"></i>
+						      </button>
+						    </div>
+						  </div>
+						  <button class="btn btn-primary text-center"> Search </button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<script src="https://www.gstatic.com/firebasejs/5.8.5/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyA_3Ez0a1_bUXmAyKYxnqSnzDE8kTHOXwY",
+    authDomain: "awesome-engine.firebaseapp.com",
+    databaseURL: "https://awesome-engine.firebaseio.com",
+    projectId: "awesome-engine",
+    storageBucket: "awesome-engine.appspot.com",
+    messagingSenderId: "834058498773"
+  };
+  firebase.initializeApp(config);
+</script>
+<script>
+	function login(){
+     // windows.alert("working!")
+     document.getElementById("search").innerHTML = "okay"
+}
+</script>
+	<!-- Modal Popup -->
+	<div id="myModal" class="modal fade" role="dialog">
+	  <div class="modal-dialog">
+
+	    <!-- Modal content-->
+	    <div class="modal-content">
+	      <div class="modal-header">
+
+	        <button type="button" class="close" data-dismiss="modal">&times;</button>
+	        <h4 class="modal-title">Login</h4>
+	      </div>
+	      <div class="modal-body">
+	        <form >
+			  <div class="form-group">
+			    <label for="email">Email address:</label>
+			    <input type="email" class="form-control" id="email">
+			  </div>
+			  <div class="form-group">
+			    <label for="pwd">Password:</label>
+			    <input type="password" class="form-control" id="pwd">
+			  </div>
+			  <div class="checkbox">
+			    <label><input type="checkbox"> Remember me</label>
+			  </div>
+			  <button onclick="login()"  class="btn btn-default">Submit</button>
+			</form>
+	      </div><!--
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	      </div> -->
+	    </div>
+
+	  </div>
+	</div>
+	<!-- End -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+</body>
+</html>

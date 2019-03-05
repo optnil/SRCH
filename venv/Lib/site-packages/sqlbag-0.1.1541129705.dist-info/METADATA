@@ -1,0 +1,58 @@
+Metadata-Version: 2.1
+Name: sqlbag
+Version: 0.1.1541129705
+Summary: various snippets of SQL-related boilerplate
+Home-page: https://github.com/djrobstep/sqlbag
+Author: Robert Lechte
+Author-email: robertlechte@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Provides-Extra: pendulum
+Provides-Extra: maria
+Provides-Extra: pg
+Requires-Dist: pathlib
+Requires-Dist: six
+Requires-Dist: sqlalchemy
+Provides-Extra: maria
+Requires-Dist: pymysql; extra == 'maria'
+Provides-Extra: pendulum
+Requires-Dist: pendulum; extra == 'pendulum'
+Requires-Dist: relativedelta; extra == 'pendulum'
+Provides-Extra: pg
+Requires-Dist: psycopg2; extra == 'pg'
+
+sqlbag: various sql boilerplate
+===============================
+
+This is just a collection of handy code for doing database things.
+
+What is in the box
+------------------
+
+Connections, flask setup, SQLAlchemy ORM helpers, temporary database setup and teardown (handy for integration tests).
+
+Installation
+------------
+
+Simply install with `pip <https://pip.pypa.io>`_:
+
+.. code-block:: shell
+
+    $ pip install sqlbag
+
+If you want you can install the database drivers you need at the same time, by specifying one of the optional bundles.
+
+If you're using postgres, this installs ``sqlbag`` and ``psycopg2``:
+
+.. code-block:: shell
+
+    $ pip install sqlbag[pg]
+
+If you're installing MySQL/MariaDB then this installs ``pymysql`` as well:
+
+.. code-block:: shell
+
+    $ pip install sqlbag[maria]
+
+
